@@ -1,0 +1,5 @@
+thong\dq\controller\AppControllerTest.class
+thong\dq\dao\EntityDaoImplTest.class
+thong\dq\configuration\HibernateTestConfiguration.class
+thong\dq\dao\UserDaoImplTest.class
+thong\dq\service\UserServiceImplTest.class

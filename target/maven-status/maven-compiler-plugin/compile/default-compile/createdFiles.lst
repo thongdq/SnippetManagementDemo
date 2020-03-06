@@ -1,0 +1,10 @@
+thong\dq\dao\UserDao.class
+thong\dq\configuration\AppInitializer.class
+thong\dq\model\User.class
+thong\dq\service\UserServiceImpl.class
+thong\dq\dao\UserDaoImpl.class
+thong\dq\dao\AbstractDao.class
+thong\dq\configuration\HibernateConfiguration.class
+thong\dq\controller\AppController.class
+thong\dq\service\UserService.class
+thong\dq\configuration\AppConfig.class
