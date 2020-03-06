@@ -24,14 +24,16 @@ public class UserController {
         if(users.isEmpty()) {
             return new ResponseEntity<List<User>>(HttpStatus.NO_CONTENT);
         }
-
         return new ResponseEntity<List<User>>(users, HttpStatus.OK);
     }
 
     @RequestMapping(value = {"/get-{id}-user"}, method = RequestMethod.GET, produces = { MediaType.APPLICATION_JSON_VALUE})
-    public @ResponseBody User getUser(@PathVariable("id") Integer id) {
+    public ResponseEntity<User> getUser(@PathVariable("id") Integer id) {
         User user = userService.findById(id);
-        return user;
+        if(user == null) {
+            return new ResponseEntity<User>(HttpStatus.NOT_FOUND);
+        }
+        return new ResponseEntity<User>(user, HttpStatus.OK);
     }
 
 }
