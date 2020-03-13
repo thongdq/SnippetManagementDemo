@@ -6,13 +6,16 @@ import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
+import thong.dq.model.Snippet;
 import thong.dq.model.User;
 import thong.dq.service.UserService;
 
 import java.util.List;
+import java.util.Set;
 
 @Controller
 @RequestMapping("/user")
+@CrossOrigin(origins = "http://localhost:4200")
 public class UserController {
 
     @Autowired
@@ -34,6 +37,16 @@ public class UserController {
             return new ResponseEntity<User>(HttpStatus.NOT_FOUND);
         }
         return new ResponseEntity<User>(user, HttpStatus.OK);
+    }
+
+    @RequestMapping(value = {"/get-{id}-user-snippet"}, method = RequestMethod.GET)
+    public ResponseEntity<Set<Snippet>> getUserSnippet(@PathVariable("id") Integer id) {
+        User user = userService.findById(id);
+        if(user == null) {
+            return new ResponseEntity<Set<Snippet>>(HttpStatus.NOT_FOUND);
+        }
+        Set<Snippet> snippets = user.getSnippets();
+        return new ResponseEntity<Set<Snippet>>(snippets, HttpStatus.OK);
     }
 
 }

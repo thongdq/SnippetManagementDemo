@@ -15,9 +15,9 @@ public class UserDaoImpl extends AbstractDao<Integer, User> implements UserDao {
     @Override
     public User findById(int id) {
         User user = getByKey(id);
-        if(user != null) {
-            Hibernate.initialize(user.getSnippets());
-        }
+//        if(user != null) {
+//            Hibernate.initialize(user.getSnippets());
+//        }
         return user;
     }
 

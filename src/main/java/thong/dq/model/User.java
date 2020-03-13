@@ -31,7 +31,7 @@ public class User {
     private Date joiningDate;
 
     @JsonManagedReference
-    @OneToMany(mappedBy = "user")
+    @OneToMany(mappedBy = "user", fetch = FetchType.EAGER)
     private Set<Snippet> snippets;
 
     public User() {
